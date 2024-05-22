@@ -55,13 +55,13 @@ while True:
         else:
             time_static += 1
 
-    if time_static > 21:
+    if time_static > 32:
         time_no_static = 0
         time_static = 0
         fall = False
 
     if time_no_static > 42:
-        print("Fall detected")
+        print("Warning: Fall detected!")
         fall = False
         time_no_static = 0
 
@@ -76,10 +76,10 @@ while True:
             continue
 
         if not fall:
-            print("----")
+            print(".")
 
         if acceleration(df, fps) and check_coordinate(df):
             fall = True
-            print("-------------")
+            print("fall")
 
         df = df[int(prediction_interval * fps) :]
